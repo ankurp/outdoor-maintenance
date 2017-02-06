@@ -1,0 +1,29 @@
+@import "foundation_and_overrides";
+
+#map {
+  height: 100%;
+  display: flex;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#error_explanation {
+    background: red;
+    color: white;
+    padding: 10px 20px 10px 20px;
+    margin: 10px 0 0 0;
+    h2 {
+      font-size: 20px;
+    }
+}
+
+#notice {
+    background: green;
+    color: white;  
+}

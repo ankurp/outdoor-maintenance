@@ -1,0 +1,43 @@
+<div id="map"></div>
+<script>
+  function initMap() {
+    var markers = <%= @job_postings.html_safe %>;
+    var infoWindow = new google.maps.InfoWindow()
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 40.329400, lng: -74.549762},
+      zoom: 8
+    });
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+
+        infoWindow.setPosition(pos);
+        map.setCenter(pos);
+      }, function() {
+      });
+    }
+
+    for (var i = 0; i < markers.length; i++) {
+        var position = new google.maps.LatLng(markers[i].location.latitude, markers[i].location.longitude);
+        var marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            title: markers[i].description + "\nContact Info: " + markers[i].user_email
+        });
+        
+        // Allow each marker to have an info window    
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                infoWindow.setContent("<h5>" + marker.title.split("\n").join("<br/>") + "</h5>");
+                infoWindow.open(map, marker);
+            }
+        })(marker, i));
+    }
+  }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7F6QPl6XshBJFPEq7vXCrsD6bqeT3Mkk&callback=initMap">
+</script>

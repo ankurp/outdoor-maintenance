@@ -1,0 +1,40 @@
+<div class="medium-6 medium-centered large-4 large-centered columns">
+  <%= form_for(job_posting) do |f| %>
+    <h4 class="text-center"><%= job_posting.new_record? ? 'New' : 'Edit' %> Job Posting</h4>
+    <% if job_posting.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(job_posting.errors.count, "error") %> prohibited this job_posting from being saved:</h2>
+
+        <ul>
+        <% job_posting.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :job_type %>
+      <%= f.select :job_type_id, options_for_select(JobType.all.map{|jt| [jt.name, jt.id]}) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :location_id %>
+      <%= f.select :location_id, options_for_select(current_user.locations.map{|l| [l.address, l.id]}) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description, 'Describe the job in detail and the amount of work to be done' %>
+      <%= f.text_area :description %>
+    </div>
+
+    <div class="field">
+      <%= f.label :payment_for_job, 'Payment for the completing the entire job (in Dollar and in whole number)' %>
+      <%= f.number_field :payment_for_job %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit 'Create Posting', :class => 'button' %>
+    </div>
+  <% end %>
+</div>

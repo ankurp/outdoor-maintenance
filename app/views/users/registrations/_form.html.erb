@@ -1,0 +1,35 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <div class="row column log-in-form">
+    <h4 class="text-center">Sign up with your email</h4>
+    <label>Name
+      <%= f.text_field :name, autofocus: true %>
+    </label>
+    <label>Email
+      <%= f.email_field :email, autofocus: true %>
+    </label>
+    <label>Password
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "off" %>
+    </label>
+    <label>Password Confirmation
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </label>
+    <label>Phone Number
+      <%= f.phone_field :phone_number, autofocus: true %>
+    </label>
+
+    <div class="buttons-wrapper text-center">
+      <%= f.radio_button :is_homeowner, 1, style: 'display:none;', :class => 'is_homeowner_radio', id: "is_homeowner", checked: true %>
+      <label class="radio-button" for="is_homeowner">Homeowner</label>
+
+      <%= f.radio_button :is_homeowner, 0, style: 'display:none;', :class => 'is_homeowner_radio' , id: 
+      'is_job_seeker' %>
+      <label class="radio-button" for="is_job_seeker">Job Seeker</label>
+    </div>
+
+    <p class="text-center"><%= f.submit "Sign up", :class => "button" %></p>
+    <p class="text-center"><%= link_to "Log in", new_session_path(resource_name) %><br /></p>   
+  </div>
+<% end %>

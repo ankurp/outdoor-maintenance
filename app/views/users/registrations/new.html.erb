@@ -1,0 +1,31 @@
+<div class="medium-6 medium-centered large-4 large-centered columns">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+    <div class="row column log-in-form">
+      <h4 class="text-center">Sign up with your email as <%= params[:profile].try(:humanize) %></h4>
+      <label>Name
+        <%= f.text_field :name, autofocus: true %>
+      </label>
+      <label>Email
+        <%= f.email_field :email, autofocus: true %>
+      </label>
+      <label>Password
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </label>
+      <label>Password Confirmation
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </label>
+      <label>Phone Number
+        <%= f.phone_field :phone_number, autofocus: true %>
+      </label>
+
+      <%= f.hidden_field :is_homeowner, value: params[:profile] == "homeowner" %>
+
+      <p><%= f.submit "Sign up", :class => "button" %></p>
+      <p class="text-center"><%= render "users/shared/links" %></p>   
+    </div>
+  <% end %>
+</div>

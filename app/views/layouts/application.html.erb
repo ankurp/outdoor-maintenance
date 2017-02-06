@@ -1,14 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>OutdoorMaintenance</title>
-    <%= csrf_meta_tags %>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <title><%= content_for?(:title) ? yield(:title) : "Sustainable Outdoor Maintenance Jobs" %></title>
+
+    <%= stylesheet_link_tag 'application', params[:controller], media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
   </head>
 
   <body>
+    <% if current_user %>
+      <div class="top-bar">
+        <div class="top-bar-left">
+          <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text">
+              <%= link_to 'Sustainable Jobs', '/' %>
+            </li>
+            <% if current_user.is_homeowner %>
+              <li class="menu">
+                <%= link_to 'New Job Posting', new_job_posting_path %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="top-bar-right">
+          <ul class="dropdown menu" data-dropdown-menu>
+            <li>
+              <a href="#"><%= current_user.name %></a>
+              <ul class="menu vertical">
+                <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+                <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

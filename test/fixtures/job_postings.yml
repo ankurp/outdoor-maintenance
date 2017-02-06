@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  job_type: one
+  location: one
+  description: MyString
+  payment_for_job: 1
+
+two:
+  user: two
+  job_type: two
+  location: two
+  description: MyString
+  payment_for_job: 1

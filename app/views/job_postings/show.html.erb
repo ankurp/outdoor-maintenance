@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<div class="medium-6 medium-centered large-4 large-centered columns">
+  <h4><strong><%= @job_posting.job_type.name %> job request</strong></h4>
+  <p>
+    <strong>At Location</strong><br/>
+    <%= @job_posting.location.address %>
+  </p>
+
+  <p>
+    <strong>With following description:</strong><br/>
+    <%= @job_posting.description %>
+  </p>
+
+  <p>
+    You expect to pay <strong>$<%= @job_posting.payment_for_job %></strong>  for someone to do this job.
+  </p>
+
+  <%= link_to 'Edit Posting', edit_job_posting_path(@job_posting) %> |
+  <%= link_to 'Delete This', job_posting_path(@job_posting), method: :delete %>
+</div>
