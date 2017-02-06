@@ -9,7 +9,6 @@ gem 'devise', '~> 4.2.0'
 
 gem 'foundation-rails', '~> 6.3.0.0'
 gem 'rails', '~> 5.0.1'
-gem 'sqlite3'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -23,6 +22,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'activeadmin', '~> 1.0.0.pre4'
 gem 'inherited_resources', git: 'https://github.com/activeadmin/inherited_resources'
 gem 'geocoder'
+gem 'pg'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -32,6 +32,7 @@ gem 'geocoder'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
