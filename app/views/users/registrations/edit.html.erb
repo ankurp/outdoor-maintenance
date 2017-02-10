@@ -13,15 +13,9 @@
         <%= f.phone_field :phone_number, autofocus: true %>
       </label>
 
-      <label class="radio-button" for="is_homeowner">Homeowner
-      <%= f.radio_button :is_homeowner, 1, :class => 'is_homeowner_radio', id: "is_homeowner", checked: true %></label>
-
+      <label class="radio-button" for="is_homeowner">Are you a Homeowner?
+      <%= f.check_box :is_homeowner, :class => 'is_homeowner_radio', id: 'is_homeowner', checked: resource.is_homeowner %></label>
       
-      <label class="radio-button" for="is_job_seeker">Job Seeker
-      <%= f.radio_button :is_homeowner, 0, :class => 'is_homeowner_radio' , id: 
-      'is_job_seeker' %>
-      </label>
-
       <p><%= f.submit "Update", :class => "button" %></p>
     </div>
   <% end %>
