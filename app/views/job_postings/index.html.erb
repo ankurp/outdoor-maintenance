@@ -282,7 +282,7 @@
         // Allow each marker to have an info window    
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
-                infoWindow.setContent("<h5>" + marker.title.split("\n").join("<br/>") + "</h5>");
+                infoWindow.setContent("<strong>" + marker.title.split("\n").join("<br/>") + "</strong>");
                 infoWindow.open(map, marker);
             }
         })(marker, i));
