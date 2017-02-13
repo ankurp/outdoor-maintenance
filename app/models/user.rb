@@ -7,4 +7,9 @@ class User < ApplicationRecord
   has_many :locations
   has_many :job_postings
 
+
+  def contact_info
+    [self.email, self.phone_number].compact.join('\n')
+  end
+
 end

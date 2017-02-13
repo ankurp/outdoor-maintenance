@@ -264,18 +264,10 @@ body {
 }
 
 a {
-    color: #10bbf1;
+    color: $primary-color;
     cursor: pointer;
     background: transparent;
     text-decoration: none;
-}
-
-a:hover {
-    color: #40c9f4
-}
-
-a:active {
-    color: #0b97c3
 }
 
 .error {
@@ -330,7 +322,7 @@ header .buttons-wrapper {
 }
 
 .is_homeowner_radio:checked + label.radio-button {
-  background: #10bbf1;
+  background: $primary-color;
 }
 
 .radio-button {
@@ -356,9 +348,9 @@ header .buttons-wrapper {
 
 .button {
     color: white;
-    background: #10bbf1;
+    background: $primary-color;
     height: 58px;
-    border: 2px solid #10bbf1;
+    border: 2px solid $primary-color;
     font: 500 22px "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding: 0 21px;
     -moz-transition: color 0.1s linear, background-color 0.1s linear, border-color 0.1s linear;
@@ -375,11 +367,6 @@ header .buttons-wrapper {
     line-height: 52px;
 }
 
-.button:hover {
-    background: #40c9f4;
-    border-color: #40c9f4;
-}
-
 .button:active {
     background: #0b97c3;
     border-color: #0b97c3;
@@ -390,14 +377,6 @@ a.button {
     display: inline-block;
     line-height: 54px;
     color: white;
-}
-
-a.button:hover {
-    color: white
-}
-
-a.button:active {
-    color: white
 }
 
 a.button.button-stripe {
@@ -508,7 +487,7 @@ header .buttons-wrapper .button-stripe {
 /* footer --------------------------  */
 
 footer {
-    background: #324a57;
+    background: $background-blue;
     color: white;
     font-size: 16px;
     line-height: 28px;
@@ -649,7 +628,7 @@ footer {
 }
 
 .comments {
-    background: #10bbf1;
+    background: $primary-color;
     color: white;
     text-align: center;
     padding: 70px 0 60px;
@@ -803,38 +782,6 @@ footer {
     -o-transition: color 0.1s linear, background-color 0.1s linear, border-color 0.1s linear;
     -webkit-transition: color 0.1s linear, background-color 0.1s linear, border-color 0.1s linear;
     transition: color 0.1s linear, background-color 0.1s linear, border-color 0.1s linear;
-}
-
-.social-list li a:hover {
-    background-color: #6ed9ff
-}
-
-.social-list li a:active {
-    background-color: #08bdff
-}
-
-.social-list li a.social-facebook {
-    background-color: #1e3aa6
-}
-
-.social-list li a.social-facebook:hover {
-    background-color: #2649d1
-}
-
-.social-list li a.social-facebook:active {
-    background-color: #162b7b
-}
-
-.social-list li a.social-google {
-    background-color: #d72d26
-}
-
-.social-list li a.social-google:hover {
-    background-color: #e05650
-}
-
-.social-list li a.social-google:active {
-    background-color: #ac241e
 }
 
 .discover {

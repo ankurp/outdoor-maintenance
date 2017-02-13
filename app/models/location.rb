@@ -7,4 +7,11 @@ class Location < ApplicationRecord
   def address
     [street, suite, city, state, zip_code].reject { |c| c.empty? }.join(', ')
   end
+
+  def coordinates
+    {
+      latitude: self.latitude,
+      longitude: self.longitude
+    }
+  end
 end

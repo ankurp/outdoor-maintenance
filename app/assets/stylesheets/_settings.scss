@@ -50,13 +50,14 @@ $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #1779ba,
-  secondary: #767676,
-  success: #3adb76,
-  warning: #ffae00,
-  alert: #cc4b37,
+  primary: #4ECDC4,
+  secondary: #1A535C,
+  success: #96E6B3,
+  warning: #FFE66D,
+  alert: #cc4b37
 );
-$light-gray: #e6e6e6;
+$background-blue: #324a57;
+$light-gray: #F2EFEA;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 $black: #0a0a0a;
@@ -346,7 +347,7 @@ $dropdownmenu-arrow-color: $anchor-color;
 $dropdownmenu-arrow-size: 6px;
 $dropdownmenu-min-width: 200px;
 $dropdownmenu-background: $white;
-$dropdownmenu-border: 1px solid $medium-gray;
+$dropdownmenu-border: none;
 
 // 19. Forms
 // ---------
@@ -411,7 +412,7 @@ $mediaobject-image-width-stacked: 100%;
 
 $menu-margin: 0;
 $menu-margin-nested: 1rem;
-$menu-item-padding: 0.7rem 1rem;
+$menu-item-padding: 0.75rem 1rem;
 $menu-item-color-active: $white;
 $menu-item-background-active: get-color(primary);
 $menu-icon-spacing: 0.25rem;
@@ -612,8 +613,8 @@ $tooltip-radius: $global-radius;
 // 37. Top Bar
 // -----------
 
-$topbar-padding: 0.5rem;
-$topbar-background: $light-gray;
+$topbar-padding: 0;
+$topbar-background: $background-blue;
 $topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 0.5rem 1rem 0.5rem 0;
 $topbar-input-width: 200px;
