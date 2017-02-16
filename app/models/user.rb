@@ -7,6 +7,11 @@ class User < ApplicationRecord
   has_many :locations
   has_many :job_postings
 
+  after_create :send_admin_mail
+
+  def send_admin_mail
+    UserMailer.welcome(self).deliver_now
+  end
 
   def contact_info
     [self.email, self.phone_number].compact.join('\n')
