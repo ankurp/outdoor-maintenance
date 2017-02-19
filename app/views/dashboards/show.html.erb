@@ -7,11 +7,12 @@
 
     var infoBubble = new InfoBubble({
         map: map,
-        shadowStyle: 1,
+        shadowStyle: 0,
         padding: 0,
         borderRadius: 2,
         closeSrc: '<%= image_url 'close.png' %>',
         borderWidth: 1,
+        maxWidth: 300,
         backgroundColor: '#4ECDC4',
         backgroundClassName: 'transparent'
     });

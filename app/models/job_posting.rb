@@ -13,7 +13,7 @@ class JobPosting < ApplicationRecord
   end
 
   def request_job_link
-    "<a rel='nofollow' class='send-request-button' data-method='post' href='/job_requests?job_request[job_posting_id]=#{self.id}'>Send Request To Job</a>"
+    "<a rel='nofollow' class='send-request-button' data-method='post' href='/job_requests?job_request[job_posting_id]=#{self.id}'>Send Request To Do The Job</a>"
   end
 
   def job_type_name

@@ -1,12 +1,12 @@
 <div class="card">
   <div class="card-divider">
-    <strong><%= user.name %></strong> has expressed interest for your <%= link_to "#{job_posting.job_type_name} job", job_posting_path(job_posting) %>.
+    <strong><%= link_to user.name, user_path(user) %></strong> has expressed interest for your <%= link_to "#{job_posting.job_type_name} job", job_posting_path(job_posting) %>.
     <p>Please reach out to <%= user.name %> to schedule him/her to do this job and below is his/her.</p> 
   </div>
   <div class="card-section">
     <strong>Contact Info</strong>
-    <p><%= user.email %></p>
-    <p><%= user.phone_number %></p>
-    <p><%= link_to "Mark job as completed by #{user.name}", completed_job_request_path(job_request), method: :put %></p>
+    <p><%= link_to user.email, "mailto:#{user.email}" %></p>
+    <p><%= link_to user.phone_number, "tel:#{user.phone_number}" %></p>
+    <p><%= link_to "Mark job as completed by #{user.name}", completed_job_request_path(job_request), method: :put, data: { confirm: "Are you sure you want to mark this job as completed by #{user.name}? Confirming will also remove this job posting from the site." } %></p>
   </div>
 </div>

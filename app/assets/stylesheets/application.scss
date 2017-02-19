@@ -28,6 +28,14 @@ html, body {
   color: white;  
   padding: 20px;
   margin: 0;
+  a {
+    background: white;
+    padding: 4px 5px;
+    border-radius: 5px;
+    &:hover {
+      background: $light-gray;
+    }
+  }
 }
 
 .card {
@@ -70,3 +78,4 @@ h4 {
     }
   }
 }
+

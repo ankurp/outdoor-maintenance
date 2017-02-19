@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-divider">
-    <%= location.address %>
+    <address><%= location.address %></address>
   </div>
   <img src="<%= "https://maps.googleapis.com/maps/api/staticmap?center=#{location.coordinates_str}&size=300x150&zoom=15&markers=color:red%7C#{location.coordinates_str}" %>" />
   <div class="card-section">

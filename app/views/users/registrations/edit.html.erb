@@ -4,10 +4,10 @@
     <div class="row column log-in-form">
       <h4 class="text-center">Edit Profile</h4>
       <label>Name
-        <%= f.text_field :name, autofocus: true %>
+        <%= f.text_field :name, autofocus: true, required: true %>
       </label>
       <label>Email
-        <%= f.email_field :email, autofocus: true %>
+        <%= f.email_field :email, autofocus: true, required: true %>
       </label>
       <label>Phone Number
         <%= f.phone_field :phone_number, autofocus: true %>

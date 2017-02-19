@@ -8,6 +8,17 @@ class User < ApplicationRecord
   has_many :job_postings
   has_many :job_requests
 
+  has_many :recommendations
+  has_many :users_who_recommended,
+            through: :recommendations,
+            source: :recommender
+  has_many :recommended,
+            foreign_key: :recommender_id,
+            class_name: 'Recommendation'
+  has_many :recommended_users,
+            through: :recommended,
+            source: :user
+
   after_create :send_admin_mail
 
   def send_admin_mail

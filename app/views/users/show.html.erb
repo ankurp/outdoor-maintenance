@@ -1,0 +1,19 @@
+<div class="users medium-centered medium-6 large-4 large-centered columns">
+  <h4><%= @user.name %></h4>
+
+  <h5>Recommendations Received</h5>
+  <div class="card">
+    <div class="card-divider">
+      <% if @users_who_recommended.size > 0 %>
+        <ul>
+          <% @users_who_recommended.each do |u| %>
+            <li><%= link_to u.name, user_path(u) %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        No recommendations yet.
+      <% end %>
+    </div>
+  </div>
+
+</div>

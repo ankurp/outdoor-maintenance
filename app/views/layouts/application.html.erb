@@ -41,7 +41,7 @@
         <div class="top-bar-right">
           <ul class="dropdown menu" data-dropdown-menu>
             <li class="menu-text">
-              <a href="#"><%= current_user.name %></a>
+              <%= link_to current_user.name, user_path(current_user) %>
               <ul class="menu vertical">
                 <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
                 <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
@@ -52,7 +52,7 @@
       </div>
     <% end %>
     <% if notice.present? %>
-      <p id="notice"><%= notice %></p>
+      <p id="notice"><%= notice.html_safe %></p>
     <% end %>
     <%= yield %>
   </body>

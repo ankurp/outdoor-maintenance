@@ -1,9 +1,9 @@
-class JobRequestsController < InheritedResources::Base
+class JobRequestsController < ApplicationController
 
   before_action :set_job_request, only: [:show, :destroy]
 
   def index
-    @job_requests = current_user.job_requests
+    @job_requests = current_user.job_requests.joins(:job_posting)
   end
 
   def show
@@ -13,9 +13,14 @@ class JobRequestsController < InheritedResources::Base
     @job_request = JobRequest.joins(:job_posting)
                              .where('job_postings.user_id = ?', current_user.id)
                              .find(params[:id])
+    @user = @job_request.user
     if @job_request.mark_as_completed!
       redirect_to dashboard_path,
-        notice: "Your job for #{@job_request.job_type_name} has been marked as completed by #{@job_request.user.name} and your job posting for it is now removed from the site."
+        notice: ["Your job for #{@job_request.job_type_name} has been marked as completed by ",
+          "#{@user.name} and your job posting for it is now removed from the site. ",
+          "Do you recommend ",
+          @job_request.link_to_recommend
+        ].join('')
     else
     end
   end

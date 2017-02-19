@@ -25,12 +25,12 @@
 
     <div class="field">
       <%= f.label :description, 'Describe the job in detail and the amount of work to be done' %>
-      <%= f.text_area :description, rows: 5 %>
+      <%= f.text_area :description, rows: 5, required: true %>
     </div>
 
     <div class="field">
       <%= f.label :payment_for_job, 'Payment for the completing the entire job (in Dollar and in whole number)' %>
-      <%= f.number_field :payment_for_job %>
+      <%= f.number_field :payment_for_job, required: true %>
     </div>
 
     <div class="actions">

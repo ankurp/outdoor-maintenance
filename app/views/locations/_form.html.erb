@@ -15,7 +15,7 @@
 
     <div class="field">
       <%= f.label :street %>
-      <%= f.text_field :street %>
+      <%= f.text_field :street, required: true %>
     </div>
 
     <div class="field">
@@ -25,17 +25,17 @@
 
     <div class="field">
       <%= f.label :city %>
-      <%= f.text_field :city %>
+      <%= f.text_field :city, required: true %>
     </div>
 
     <div class="field">
       <%= f.label :state %>
-      <%= f.text_field :state %>
+      <%= f.text_field :state, required: true %>
     </div>
 
     <div class="field">
       <%= f.label :zip_code %>
-      <%= f.text_field :zip_code %>
+      <%= f.text_field :zip_code, required: true %>
     </div>
 
     <div class="actions">
