@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170205202711) do
+ActiveRecord::Schema.define(version: 20170219134511) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -54,6 +54,15 @@ ActiveRecord::Schema.define(version: 20170205202711) do
     t.index ["job_type_id"], name: "index_job_postings_on_job_type_id"
     t.index ["location_id"], name: "index_job_postings_on_location_id"
     t.index ["user_id"], name: "index_job_postings_on_user_id"
+  end
+
+  create_table "job_requests", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "job_posting_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["job_posting_id"], name: "index_job_requests_on_job_posting_id"
+    t.index ["user_id"], name: "index_job_requests_on_user_id"
   end
 
   create_table "job_types", force: :cascade do |t|

@@ -13,6 +13,10 @@
         <%= f.phone_field :phone_number, autofocus: true %>
       </label>
 
+      <p>
+        <%= link_to 'Edit Home Address(es)', locations_path %>
+      </p>
+
       <label class="radio-button" for="is_homeowner">Are you a Homeowner?
       <%= f.check_box :is_homeowner, :class => 'is_homeowner_radio', id: 'is_homeowner', checked: resource.is_homeowner %></label>
       

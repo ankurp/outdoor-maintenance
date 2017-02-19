@@ -1,0 +1,9 @@
+<div class="card">
+  <div class="card-divider">
+    <%= job_request.location_address %>
+  </div>
+  <img src="<%= "https://maps.googleapis.com/maps/api/staticmap?center=#{job_request.job_posting.location.coordinates_str}&size=300x150&zoom=15&markers=color:red%7C#{job_request.job_posting.location.coordinates_str}" %>" />
+  <div class="card-section">
+    <%= link_to 'Cancel This Request', job_request_path(job_request), method: :delete %>
+  </div>
+</div>

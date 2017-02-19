@@ -17,13 +17,25 @@
         <div class="top-bar-left">
           <ul class="dropdown menu" data-dropdown-menu>
             <li class="menu-text">
-              <%= link_to 'Sustainable Jobs', '/' %>
+              <%= link_to 'Sustainable Jobs', dashboard_path %>
+              <ul class="menu vertical">
+                <% if current_user.is_homeowner %>
+                  <li class="menu">
+                    <%= link_to 'Create Job Posting', new_job_posting_path %>
+                  </li>
+                  <li class="menu">
+                    <%= link_to 'Your Job Postings', job_postings_path %>
+                  </li>
+                  <li class="menu">
+                    <%= link_to 'Request(s) to do your Jobs', requests_job_postings_path %>
+                  </li>
+                <% else %>
+                  <li class="menu">
+                    <%= link_to 'Your Job Request', job_requests_path %>
+                  </li>
+                <% end %>
+              </ul>
             </li>
-            <% if current_user.is_homeowner %>
-              <li class="menu">
-                <%= link_to 'New Job Posting', new_job_posting_path %>
-              </li>
-            <% end %>
           </ul>
         </div>
         <div class="top-bar-right">
@@ -38,6 +50,9 @@
           </ul>
         </div>
       </div>
+    <% end %>
+    <% if notice.present? %>
+      <p id="notice"><%= notice %></p>
     <% end %>
     <%= yield %>
   </body>

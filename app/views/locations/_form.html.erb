@@ -1,6 +1,6 @@
 <div class="medium-6 medium-centered large-4 large-centered columns">
   <%= form_for(location) do |f| %>
-    <h4 class="text-center"><%= location.new_record? ? 'Add your home' : 'Update your home' %> location</h4>
+    <h4 class="text-center"><%= location.new_record? ? 'Add your home' : 'Update your home' %> address</h4>
     <% if location.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(location.errors.count, "error") %> prohibited this location from being saved:</h2>
@@ -39,7 +39,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit 'Add Home Location', :class => "button" %>
+      <%= f.submit location.new_record? ? 'Add New Address' : 'Update Address', :class => "button" %>
     </div>
   <% end %>
 </div>

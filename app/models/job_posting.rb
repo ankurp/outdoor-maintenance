@@ -2,13 +2,21 @@ class JobPosting < ApplicationRecord
   belongs_to :user
   belongs_to :job_type
   belongs_to :location
+  has_many :job_requests
 
-  def self.all_postings
-    all.map do |j|
-      j.attributes.merge({
-        location: j.location.coordinates,
-        contact_info: j.user.contact_info
-      })
-    end.to_json
+  def location_coordinates
+    self.location.coordinates
+  end
+
+  def request_job_link
+    "<a rel='nofollow' class='send-request-button' data-method='post' href='/job_requests?job_request[job_posting_id]=#{self.id}'>Send Request To Job</a>"
+  end
+
+  def job_type_name
+    self.job_type.name
+  end
+
+  def location_address
+    self.location.address
   end
 end

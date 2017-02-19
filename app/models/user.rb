@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :locations
   has_many :job_postings
+  has_many :job_requests
 
   after_create :send_admin_mail
 

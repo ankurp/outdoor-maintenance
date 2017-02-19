@@ -1,35 +1,10 @@
-<p id="notice"><%= notice %></p>
+<div class="locations medium-centered medium-6 large-4 large-centered columns">
 
-<h1>Locations</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Street</th>
-      <th>Suite</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip code</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @locations.each do |location| %>
-      <tr>
-        <td><%= location.street %></td>
-        <td><%= location.suite %></td>
-        <td><%= location.city %></td>
-        <td><%= location.state %></td>
-        <td><%= location.zip_code %></td>
-        <td><%= link_to 'Show', location %></td>
-        <td><%= link_to 'Edit', edit_location_path(location) %></td>
-        <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Location', new_location_path %>
+  <h4>Addresses</h4>
+  <% @locations.each_with_index do |location, index| %>
+    <%= render location, show_remove: index > 0 %>
+  <% end %>
+  <p>
+    <%= link_to 'Add Another Address', new_location_path %>
+  </p>
+</div>

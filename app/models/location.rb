@@ -8,6 +8,10 @@ class Location < ApplicationRecord
     [street, suite, city, state, zip_code].reject { |c| c.empty? }.join(', ')
   end
 
+  def coordinates_str
+    [self.latitude, self.longitude].join(',')
+  end
+
   def coordinates
     {
       latitude: self.latitude,

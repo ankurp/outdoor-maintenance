@@ -24,7 +24,49 @@ html, body {
 }
 
 #notice {
-    background: green;
-    color: white;  
+  background: $primary-color;
+  color: white;  
+  padding: 20px;
+  margin: 0;
 }
 
+.card {
+  img {
+    width: 100%;
+  }
+}
+
+
+.job-posting-description {
+  padding: 10px 20px 10px 10px;
+  font-size: 18px;
+  background: white;
+}
+
+.js-info-bubble-close {
+  top: 5px !important;
+  right: 5px !important;
+}
+
+.send-request-button {
+  color: white;
+  display: block;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 18px;
+  &:hover {
+    color: $light-gray;
+  }
+}
+
+h4 {
+  margin-top: 10px;
+}
+
+.top-bar-left {
+  .dropdown.menu {
+    .menu.vertical {
+      width: 300px;
+    }
+  }
+}

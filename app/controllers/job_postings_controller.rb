@@ -4,7 +4,7 @@ class JobPostingsController < ApplicationController
   # GET /job_postings
   # GET /job_postings.json
   def index
-    @job_postings = JobPosting.all_postings
+    @job_postings = current_user.job_postings
   end
 
   # GET /job_postings/1
@@ -22,6 +22,12 @@ class JobPostingsController < ApplicationController
 
   # GET /job_postings/1/edit
   def edit
+  end
+
+  def requests
+    @job_requests = JobRequest.joins(:job_posting)
+                              .joins(:user)
+                              .where('job_postings.user_id = ?', current_user)
   end
 
   # POST /job_postings

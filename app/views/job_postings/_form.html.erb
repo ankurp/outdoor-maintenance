@@ -19,13 +19,13 @@
     </div>
 
     <div class="field">
-      <%= f.label :location_id %>
+      <%= f.label :location_id, 'For Address' %>
       <%= f.select :location_id, options_for_select(current_user.locations.map{|l| [l.address, l.id]}) %>
     </div>
 
     <div class="field">
       <%= f.label :description, 'Describe the job in detail and the amount of work to be done' %>
-      <%= f.text_area :description %>
+      <%= f.text_area :description, rows: 5 %>
     </div>
 
     <div class="field">
