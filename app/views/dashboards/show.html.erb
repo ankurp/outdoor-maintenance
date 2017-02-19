@@ -41,7 +41,7 @@
               strokeColor: '',
               strokeWeight: 0
             },
-            title: "<div class='job-posting-description'>" + markers[i].description + "</div>"<%= (current_user.present? && current_user.is_homeowner) ? '' : ' + markers[i].request_job_link' %>
+            title: "<div class='job-posting-description'>" + markers[i].description + "</div>"<%= (current_user.blank? || current_user.is_homeowner) ? '' : ' + markers[i].request_job_link' %>
         });
         
         // Allow each marker to have an info window    
