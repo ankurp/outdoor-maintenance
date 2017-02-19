@@ -4,6 +4,10 @@ class JobPosting < ApplicationRecord
   belongs_to :location
   has_many :job_requests
 
+  def self.default_scope
+    where(completed: false)
+  end
+
   def location_coordinates
     self.location.coordinates
   end

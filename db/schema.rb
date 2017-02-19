@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170219134511) do
+ActiveRecord::Schema.define(version: 20170219174331) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -49,8 +49,9 @@ ActiveRecord::Schema.define(version: 20170219134511) do
     t.integer  "location_id"
     t.string   "description"
     t.integer  "payment_for_job"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "completed",       default: false
     t.index ["job_type_id"], name: "index_job_postings_on_job_type_id"
     t.index ["location_id"], name: "index_job_postings_on_location_id"
     t.index ["user_id"], name: "index_job_postings_on_user_id"
@@ -59,8 +60,9 @@ ActiveRecord::Schema.define(version: 20170219134511) do
   create_table "job_requests", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "job_posting_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "completed",      default: false
     t.index ["job_posting_id"], name: "index_job_requests_on_job_posting_id"
     t.index ["user_id"], name: "index_job_requests_on_user_id"
   end

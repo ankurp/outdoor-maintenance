@@ -2,7 +2,7 @@
   <% if @job_requests.size > 0 %>
     <h4>Request(s) do your Jobs</h4>
     <% @job_requests.each do |job_request| %>
-      <%= render job_request.user, job_posting: job_request.job_posting %>
+      <%= render job_request.user, job_posting: job_request.job_posting, job_request: job_request %>
     <% end %>
   <% else %>
     <h4>No Job Request(s) Received Yet</h4>

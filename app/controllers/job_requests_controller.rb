@@ -9,6 +9,17 @@ class JobRequestsController < InheritedResources::Base
   def show
   end
 
+  def completed
+    @job_request = JobRequest.joins(:job_posting)
+                             .where('job_postings.user_id = ?', current_user.id)
+                             .find(params[:id])
+    if @job_request.mark_as_completed!
+      redirect_to dashboard_path,
+        notice: "Your job for #{@job_request.job_type_name} has been marked as completed by #{@job_request.user.name} and your job posting for it is now removed from the site."
+    else
+    end
+  end
+
   def create
     existing_job_request = current_user.job_requests.where(job_request_params).first
     if existing_job_request.present?

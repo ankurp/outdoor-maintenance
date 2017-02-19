@@ -7,5 +7,6 @@
     <strong>Contact Info</strong>
     <p><%= user.email %></p>
     <p><%= user.phone_number %></p>
+    <p><%= link_to "Mark job as completed by #{user.name}", completed_job_request_path(job_request), method: :put %></p>
   </div>
 </div>

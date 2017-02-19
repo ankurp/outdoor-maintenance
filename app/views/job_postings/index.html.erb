@@ -1,10 +1,13 @@
 <div class="medium-centered medium-6 large-4 large-centered columns">
 
   <h4>Your Job Postings</h4>
-  <% @job_postings.each do |job_posting| %>
-    <%= render job_posting %>
+  <% if @job_postings.size > 0 %>
+    <% @job_postings.each do |job_posting| %>
+      <%= render job_posting %>
+    <% end %>
+  <% else %>
+    <p>You have not created any job posting. Create one now.</p>
   <% end %>
-
   <p>
     <%= link_to 'Create New Job Posting', job_postings_path %>
   </p>
