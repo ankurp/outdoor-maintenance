@@ -2,7 +2,7 @@
   <div class="card-divider">
     <address><%= job_request.location_address %></address>
   </div>
-  <img src="<%= "https://maps.googleapis.com/maps/api/staticmap?center=#{job_request.job_posting.location.coordinates_str}&size=380x190&zoom=15&markers=color:red%7C#{job_request.job_posting.location.coordinates_str}" %>" />
+  <img src="<%= "https://maps.googleapis.com/maps/api/staticmap?center=#{job_request.job_posting.location.coordinates_str}&size=380x190&zoom=15&markers=color:red%7C#{job_request.job_posting.location.coordinates_str}&key=AIzaSyDj5PR-J8QiO3f3gRiiOp6NsyRKUEWB1x4" %>" />
   <div class="card-section">
     <%= link_to 'Cancel This Request', job_request_path(job_request), method: :delete %>
   </div>
