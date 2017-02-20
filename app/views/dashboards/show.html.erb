@@ -1,61 +1,10 @@
+<script id="map_configuration" type="application/json">
+<%= {
+  "closeSrc": image_url('close.png'),
+  "showRequestButton": !current_user.blank? && !current_user.is_homeowner
+  }.to_json.html_safe %>
+</script>
+<script id="map_markers" type="application/json">
+<%= @job_postings.html_safe %>
+</script>
 <div id="map"></div>
-<script>
-  function initMap() {
-    var markers = <%= @job_postings.html_safe %>;
-    // var infoWindow = new google.maps.InfoWindow()
-    var map = new google.maps.Map(document.getElementById('map'), {center:{lat:40.329400,lng:-74.549762},zoom:8,styles:[{"featureType":"poi","elementType":"geometry.fill","stylers":[{"color":"#C5E3BF"}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#D1D1B8"}]},{"featureType":"water","elementType":"geometry","stylers":[{"visibility":"on"},{"color":"#C6E2FF"}]}]});
-
-    var infoBubble = new InfoBubble({
-        map: map,
-        shadowStyle: 0,
-        padding: 0,
-        borderRadius: 2,
-        closeSrc: '<%= image_url 'close.png' %>',
-        borderWidth: 1,
-        maxWidth: 300,
-        backgroundColor: '#4ECDC4',
-        backgroundClassName: 'transparent'
-    });
-
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        var pos = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
-        map.panTo(pos);
-        map.setZoom(11);
-      }, function() {
-      });
-    }
-
-    for (var i = 0; i < markers.length; i++) {
-        var position = new google.maps.LatLng(markers[i].location_coordinates.latitude, markers[i].location_coordinates.longitude);
-        var marker = new google.maps.Marker({
-            position: position,
-            animation: google.maps.Animation.DROP,
-            map: map,
-            icon: {
-              path: "M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z",
-              fillColor: '#4ECDC4',
-              fillOpacity: 1,
-              strokeColor: '',
-              strokeWeight: 0
-            },
-            title: "<div class='job-posting-description'>" + markers[i].description + "</div>"<%= (current_user.blank? || current_user.is_homeowner) ? '' : ' + markers[i].request_job_link' %>
-        });
-        
-        // Allow each marker to have an info window    
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-            return function() {
-                // infoWindow.setContent("<strong>" + marker.title.split("\n").join("<br/>") + "</strong>");
-                // infoWindow.open(map, marker);
-                infoBubble.setContent(marker.title);
-                infoBubble.open(map, marker);
-            }
-        })(marker, i));
-    }
-  }
-</script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7F6QPl6XshBJFPEq7vXCrsD6bqeT3Mkk&callback=initMap">
-</script>

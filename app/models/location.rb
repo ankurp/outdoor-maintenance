@@ -1,5 +1,6 @@
 class Location < ApplicationRecord
   belongs_to :user
+  has_many :job_postings, dependent: :destroy
 
   geocoded_by :address
   after_validation :geocode

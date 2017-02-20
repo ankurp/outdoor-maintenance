@@ -17,6 +17,7 @@ gem 'execjs'
 gem 'therubyracer', platforms: :ruby
 gem 'jquery-ui-rails', '~> 4.2.1'
 gem 'jquery-rails'
+gem 'jquery-turbolinks'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'activeadmin', '~> 1.0.0.pre4'

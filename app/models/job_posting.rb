@@ -2,7 +2,7 @@ class JobPosting < ApplicationRecord
   belongs_to :user
   belongs_to :job_type
   belongs_to :location
-  has_many :job_requests
+  has_many :job_requests, dependent: :destroy
 
   def self.default_scope
     where(completed: false)

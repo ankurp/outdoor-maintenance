@@ -4,20 +4,20 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :locations
-  has_many :job_postings
-  has_many :job_requests
+  has_many :locations, dependent: :destroy
+  has_many :job_postings, dependent: :destroy
+  has_many :job_requests, dependent: :destroy
 
-  has_many :recommendations
+  has_many :recommendations, dependent: :destroy
   has_many :users_who_recommended,
             through: :recommendations,
-            source: :recommender
+            source: :recommender, dependent: :destroy
   has_many :recommended,
             foreign_key: :recommender_id,
-            class_name: 'Recommendation'
+            class_name: 'Recommendation', dependent: :destroy
   has_many :recommended_users,
             through: :recommended,
-            source: :user
+            source: :user, dependent: :destroy
 
   after_create :send_admin_mail
 
