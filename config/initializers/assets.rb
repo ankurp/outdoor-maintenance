@@ -16,7 +16,7 @@ Rails.application.config.assets.precompile += %w(
   users.css
   dashboards.css
   registrations.css
-  infobubble.js
+  devise/sessions.css
   job_postings.js
   job_requests.js
   locations.js
@@ -24,4 +24,5 @@ Rails.application.config.assets.precompile += %w(
   users.js
   dashboards.js
   registrations.js
+  devise/sessions.js
 )

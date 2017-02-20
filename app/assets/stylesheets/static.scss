@@ -741,7 +741,7 @@ footer {
 }
 
 .video {
-    padding: 108px 0 116px
+    padding: 108px 0 0
 }
 
 .video-block {
@@ -867,7 +867,6 @@ footer {
 }
 
 .discover-img-inside {
-    margin: 0 -40px
 }
 
 /* sidebar --------------------------  */
@@ -1061,4 +1060,14 @@ footer {
   height: 300px;
   max-width: 600px;
   display: block;
+}
+
+@media (max-width: 479px) {
+    #map {
+      margin: 0;
+      height: 300px;
+      width: 100%;
+      max-width: initial;
+      display: block;
+    }
 }

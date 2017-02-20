@@ -2,9 +2,15 @@
 
   <h4>You Recommended</h4>
   <% if @recommendations.size > 0 %>
-    <% @recommendations.each do |r| %>
-      <%= link_to r.user.name, user_path(r.user) %> 
-    <% end %>
+    <div class="card">
+      <div class="card-divider">
+        <ul>
+          <% @recommendations.each do |r| %>
+            <li><%= link_to r.user.name, user_path(r.user) %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
   <% else %>
     You have not recommeded anyone yet. You can do so after you "Mark a job as completed" from the <%= link_to "requests page", job_requests_path %>
   <% end %>
