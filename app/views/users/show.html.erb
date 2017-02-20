@@ -24,11 +24,13 @@
       </div>
     </div>
 
+    <h5>Jobs completed by <%= @user.name %></h5>
     <% if @job_postings.size > 0 %>
-      <h5>Jobs completed by <%= @user.name %></h5>
       <% @job_postings.each do |j| %>
         <%= render j %>
       <% end %>
+    <% else %>
+      No jobs completed yet.
     <% end %>
   <% end %>
 
