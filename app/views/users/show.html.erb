@@ -1,19 +1,33 @@
 <div class="users medium-centered medium-6 large-4 large-centered columns">
-  <h4><%= @user.name %></h4>
+  <h4><%= @user.name %> is a <%= @user.is_homeowner ? 'Homeowner' : 'Job Seeker' %></h4>
 
-  <h5>Recommendations Received</h5>
-  <div class="card">
-    <div class="card-divider">
-      <% if @users_who_recommended.size > 0 %>
-        <ul>
-          <% @users_who_recommended.each do |u| %>
-            <li><%= link_to u.name, user_path(u) %></li>
-          <% end %>
-        </ul>
-      <% else %>
-        No recommendations yet.
+  <% if @user.is_homeowner %>
+    <% if @user.job_postings.size > 0 %>
+      <h5>Below are Jobs Posted by <%= @user.name %></h5>
+      <% @user.job_postings.each do |j| %>
+        <%= render j %>
       <% end %>
+    <% end %>
+  <% else %>
+    <h5><%= @user.name %>'s Recommendations</h5>
+    <div class="card">
+      <div class="card-divider">
+        <% if @users_who_recommended.size > 0 %>
+          <ul>
+            <% @users_who_recommended.each do |u| %>
+              <li><%= link_to u.name, user_path(u) %></li>
+            <% end %>
+          </ul>
+        <% else %>
+          No one has recommended <%= @user.name %> yet.
+        <% end %>
+      </div>
     </div>
-  </div>
+
+    <h5>Jobs completed by <%= @user.name %></h5>
+    <% @job_postings.each do |j| %>
+      <%= render j %>
+    <% end %>
+  <% end %>
 
 </div>

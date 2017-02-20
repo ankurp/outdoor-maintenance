@@ -30,9 +30,9 @@ class LocationsController < ApplicationController
       if @location.save
         format.html do
           if current_user.locations.count > 1
-            redirect_to locations_path, notice: 'Location was successfully created.'
+            redirect_to locations_path, notice: 'Address was added successfully.'
           else
-            redirect_to new_job_posting_path, notice: 'Location was successfully created.'
+            redirect_to new_job_posting_path, notice: 'Address was added successfully.'
           end
         end
         format.json { render :show, status: :created, location: @location }

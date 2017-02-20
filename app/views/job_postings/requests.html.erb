@@ -1,6 +1,6 @@
 <div class="medium-centered medium-6 large-4 large-centered columns">
   <% if @job_requests.size > 0 %>
-    <h4>Request(s) do your Jobs</h4>
+    <h4>Request(s) to do your Jobs</h4>
     <% @job_requests.each do |job_request| %>
       <%= render job_request.user, job_posting: job_request.job_posting, job_request: job_request %>
     <% end %>
