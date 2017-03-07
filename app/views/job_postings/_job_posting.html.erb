@@ -16,7 +16,7 @@
       </p>
     <% end %>
   </div>
-  <img src="<%= "https://maps.googleapis.com/maps/api/staticmap?center=#{job_posting.location.coordinates_str}&size=380x190&zoom=15&markers=color:red%7C#{job_posting.location.coordinates_str}&key=AIzaSyDj5PR-J8QiO3f3gRiiOp6NsyRKUEWB1x4" %>" />
+  <img src="<%= "https://maps.googleapis.com/maps/api/staticmap?center=#{job_posting.location.coordinates_str}&size=380x190&zoom=15&markers=color:red%7C#{job_posting.location.coordinates_str}&key=AIzaSyASzLV9HksurXgWeTPy_LpfNv-2c61vSuM" %>" />
   <% if !job_posting.completed && current_user.id == job_posting.user_id %>
     <div class="card-section">
       <%= link_to 'Edit Posting', edit_job_posting_path(job_posting) %>
