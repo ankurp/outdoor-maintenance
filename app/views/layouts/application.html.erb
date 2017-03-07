@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= content_for?(:title) ? yield(:title) : "Sustainable Outdoor Maintenance Jobs" %></title>
-
     <%= stylesheet_link_tag 'application', params[:controller], media: 'all' %>
     <%= javascript_include_tag 'application', params[:controller] %>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASzLV9HksurXgWeTPy_LpfNv-2c61vSuM&callback=initMap"></script>
     <%= csrf_meta_tags %>
   </head>
 

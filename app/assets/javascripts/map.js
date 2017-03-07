@@ -1,5 +1,4 @@
 //= require_self
-//= require google-maps
 
 function initMap() {
   var configurationNode = document.getElementById('map_configuration');
