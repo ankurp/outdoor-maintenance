@@ -19,6 +19,9 @@ class User < ApplicationRecord
             through: :recommended,
             source: :user, dependent: :destroy
 
+  has_attached_file :avatar, styles: { medium: "200x200#", thumb: "100x100#" }, default_url: "/images/medium/missing.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+
   after_create :send_admin_mail
 
   def send_admin_mail

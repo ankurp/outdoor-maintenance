@@ -1,5 +1,5 @@
 <div class="medium-6 medium-centered large-4 large-centered columns">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
     <%= devise_error_messages! %>
     <div class="row column log-in-form">
       <h4 class="text-center">Edit Profile</h4>
@@ -13,14 +13,23 @@
         <%= f.phone_field :phone_number, autofocus: true %>
       </label>
 
+      <p class="panel clearfix">
+        <%= image_tag @user.avatar.url, :class => "avatar float-right" %>
+        Profile Photo
+        <%= f.file_field :avatar %>
+      </p>
+
       <p>
         <%= link_to 'Edit Home Address(es)', locations_path %>
       </p>
 
-      <label class="radio-button" for="is_homeowner">Are you a Homeowner?
-      <%= f.check_box :is_homeowner, :class => 'is_homeowner_radio', id: 'is_homeowner', checked: resource.is_homeowner %></label>
-      
-      <p><%= f.submit "Update", :class => "button" %></p>
+      <p>Are you a Homeowner or Entitled to make outdoor maintenance decisions for this property?</p>
+      <label class="label-switch">
+        <%= f.check_box :is_homeowner, :class => 'is_homeowner_radio', id: 'is_homeowner', checked: resource.is_homeowner %>
+        <div class="checkbox"></div>
+      </label>
+
+      <p class="float-right"><%= f.submit "Update", :class => "button" %></p>
     </div>
   <% end %>
 
