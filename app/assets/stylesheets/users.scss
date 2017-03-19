@@ -1,7 +1,22 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "settings";
 
 .users {
   margin-top: 10px;
+  .tabs-title {
+    width: 50%;
+    a {
+      font-size: 16px;
+    }
+  }
+  .recommended {
+    background: $background-blue;
+    color: $primary-color;
+  }
+  .fa-thumbs-up {
+    padding: 1px 10px;
+    border-radius: 5px;
+    &:hover {
+      background: $background-blue;
+    }
+  }
 }

@@ -1,3 +1,5 @@
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "foundation_and_overrides";
 @import "refills";
 
@@ -102,4 +104,8 @@ h4 {
     height: 40px;
     margin-top: -10px;
   }
+}
+
+.menu > li > a.dashboard-link {
+  padding-left: 0;
 }

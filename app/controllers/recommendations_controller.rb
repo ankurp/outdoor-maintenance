@@ -11,8 +11,8 @@ class RecommendationsController < ApplicationController
     respond_to do |format|
       if @recommendation.save
         format.html do
-          redirect_to recommendations_path,
-            notice: "You just recommended #{@recommended_user.name} and helping build a strong community!"
+          redirect_to user_path(@recommended_user),
+            notice: "You just recommended #{@recommended_user.name} and helping build a strong and sustainable community!"
         end
       else
         format.html { redirect_to job_postings_path, notice: "Error sending request. Try again." }

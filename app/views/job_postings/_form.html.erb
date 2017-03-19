@@ -1,5 +1,5 @@
-<div class="medium-6 medium-centered large-4 large-centered columns">
-  <%= form_for(job_posting) do |f| %>
+<div class="medium-centered large-6 large-centered columns">
+  <%= form_for(job_posting, html: { multipart: true }) do |f| %>
     <h4 class="text-center"><%= job_posting.new_record? ? 'New' : 'Edit' %> Job Posting</h4>
     <% if job_posting.errors.any? %>
       <div id="error_explanation">
@@ -30,11 +30,19 @@
 
     <div class="field">
       <%= f.label :payment_for_job, 'Payment for the completing the entire job (in Dollar and in whole number)' %>
-      <%= f.number_field :payment_for_job, required: true %>
+      <span class="currency-field">
+        <%= f.number_field :payment_for_job, required: true %>
+      </span>
+    </div>
+
+    <div class="field">
+      <%= image_tag job_posting.photo.url if job_posting.photo.present? %>
+      <%= f.label :photo, 'Photo of the property (Optional)' %>
+      <%= f.file_field :photo %>
     </div>
 
     <div class="actions">
-      <%= f.submit 'Create Posting', :class => 'button' %>
+      <%= f.submit "#{job_posting.new_record? ? 'Create' : 'Edit'} Posting", :class => 'button' %>
     </div>
   <% end %>
 </div>

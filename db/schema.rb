@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170318205109) do
+ActiveRecord::Schema.define(version: 20170319143205) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -49,9 +49,13 @@ ActiveRecord::Schema.define(version: 20170318205109) do
     t.integer  "location_id"
     t.string   "description"
     t.integer  "payment_for_job"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.boolean  "completed",       default: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.boolean  "completed",          default: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
     t.index ["job_type_id"], name: "index_job_postings_on_job_type_id"
     t.index ["location_id"], name: "index_job_postings_on_location_id"
     t.index ["user_id"], name: "index_job_postings_on_user_id"

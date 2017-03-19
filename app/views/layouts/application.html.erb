@@ -7,7 +7,7 @@
     <title><%= content_for?(:title) ? yield(:title) : "Sustainable Outdoor Maintenance Jobs" %></title>
     <%= stylesheet_link_tag 'application', params[:controller], media: 'all' %>
     <%= javascript_include_tag 'application', params[:controller] %>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASzLV9HksurXgWeTPy_LpfNv-2c61vSuM&callback=initMap"></script>
+    <%= content_for?(:head) ? yield(:head) : '' %>
     <%= csrf_meta_tags %>
   </head>
 
@@ -17,21 +17,21 @@
         <div class="top-bar-left">
           <ul class="dropdown menu" data-dropdown-menu>
             <li class="menu-text">
-              <%= link_to 'Sustainable Jobs', dashboard_path %>
+              <%= link_to "#{icon('envira')} Home".html_safe, '/', :class => 'dashboard-link' %>
               <ul class="menu vertical">
                 <% if current_user.is_homeowner %>
                   <li class="menu">
-                    <%= link_to 'Create Job Posting', new_job_posting_path %>
+                    <%= link_to "#{icon('plus')} Create Job Posting".html_safe, new_job_posting_path %>
                   </li>
                   <li class="menu">
-                    <%= link_to 'Your Job Postings', job_postings_path %>
+                    <%= link_to "#{icon('list')} Your Job Postings".html_safe, job_postings_path %>
                   </li>
                   <li class="menu">
-                    <%= link_to 'Request(s) to do your Jobs', requests_job_postings_path %>
+                    <%= link_to "#{icon('inbox')} Request(s) to do your Jobs".html_safe, requests_job_postings_path %>
                   </li>
                 <% else %>
                   <li class="menu">
-                    <%= link_to 'Your Job Request', job_requests_path %>
+                    <%= link_to "#{icon('paper-plane')} Sent Job Request".html_safe, job_requests_path %>
                   </li>
                 <% end %>
               </ul>
@@ -43,8 +43,9 @@
             <li class="menu-text">
               <%= link_to "#{current_user.name} #{image_tag(current_user.avatar.url, :class => "avatar small float-left")}".html_safe, user_path(current_user) %>
               <ul class="menu vertical">
-                <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
-                <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+                <li><%= link_to "#{icon('user-circle-o')} View Profile".html_safe, user_path(current_user) %></li>
+                <li><%= link_to "#{icon('pencil-square-o')} Edit Profile".html_safe, edit_user_registration_path %></li>
+                <li><%= link_to "#{icon('sign-out')} Logout".html_safe, destroy_user_session_path, :method => :delete %></li>
               </ul>
             </li>
           </ul>

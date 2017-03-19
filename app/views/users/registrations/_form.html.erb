@@ -1,6 +1,6 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <div class="row column log-in-form">
-    <h4 class="text-center">Sign up with your email</h4>
+    <h4 class="text-center">Sign up or <%= link_to "Log in", new_session_path(resource_name) %></h4>
     <label>Name
       <%= f.text_field :name, autofocus: true, required: true %>
     </label>
@@ -17,16 +17,14 @@
       <%= f.phone_field :phone_number, autofocus: true %>
     </label>
 
-    <div class="buttons-wrapper text-center">
-      <%= f.radio_button :is_homeowner, 1, style: 'display:none;', :class => 'is_homeowner_radio', id: "is_homeowner", checked: true %>
-      <label class="radio-button" for="is_homeowner">Homeowner</label>
-
-      <%= f.radio_button :is_homeowner, 0, style: 'display:none;', :class => 'is_homeowner_radio' , id: 
-      'is_job_seeker' %>
-      <label class="radio-button" for="is_job_seeker">Job Seeker</label>
+    <div>
+      <label>Are you a Homeowner or Entitled to make outdoor maintenance decisions for properties you add to your account?</label>
+      <label class="label-switch">
+        <%= f.check_box :is_homeowner, :class => 'is_homeowner_radio', id: 'is_homeowner', checked: resource.is_homeowner %>
+        <div class="checkbox"></div>
+      </label>
     </div>
 
-    <p class="text-center"><%= f.submit "Sign up", :class => "button" %></p>
-    <p class="text-center"><%= link_to "Log in", new_session_path(resource_name) %><br /></p>   
+    <p class="float-right"><%= f.submit "Sign up", :class => "button" %></p>
   </div>
 <% end %>

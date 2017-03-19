@@ -1,9 +1,5 @@
 class DashboardsController < ApplicationController
   def show
-    @job_postings = JobPosting.includes(:location)
-                              .to_json(methods: [
-                                :location_coordinates,
-                                :request_job_link
-                              ])
+    @job_postings = JobPosting.map_data
   end
 end

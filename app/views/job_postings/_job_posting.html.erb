@@ -10,14 +10,15 @@
       <%= job_posting.description %>
     </p>
 
-    <% if !job_posting.completed && current_user.id == job_posting.user_id %>
+    <% if current_user.present? && !job_posting.completed && current_user.id == job_posting.user_id %>
       <p>
         You expect to pay <strong>$<%= job_posting.payment_for_job %></strong>  for someone to do this job.
       </p>
     <% end %>
   </div>
-  <img src="<%= "https://maps.googleapis.com/maps/api/staticmap?center=#{job_posting.location.coordinates_str}&size=380x190&zoom=15&markers=color:red%7C#{job_posting.location.coordinates_str}&key=AIzaSyASzLV9HksurXgWeTPy_LpfNv-2c61vSuM" %>" />
-  <% if !job_posting.completed && current_user.id == job_posting.user_id %>
+  <%= image_tag job_posting.photo.url if job_posting.photo.present? %>
+  <img src="<%= "https://maps.googleapis.com/maps/api/staticmap?center=#{job_posting.location.coordinates_str}&size=509x254&zoom=15&markers=color:red%7C#{job_posting.location.coordinates_str}&key=AIzaSyASzLV9HksurXgWeTPy_LpfNv-2c61vSuM" %>" />
+  <% if current_user.present? && !job_posting.completed && current_user.id == job_posting.user_id %>
     <div class="card-section">
       <%= link_to 'Edit Posting', edit_job_posting_path(job_posting) %>
       <%= link_to 'Delete This', job_posting_path(job_posting), method: :delete, :class => 'float-right' %>

@@ -2,7 +2,7 @@
   <div class="card-divider">
     <address><%= location.address %></address>
   </div>
-  <img src="<%= "https://maps.googleapis.com/maps/api/staticmap?center=#{location.coordinates_str}&size=380x190&zoom=15&markers=color:red%7C#{location.coordinates_str}&key=AIzaSyASzLV9HksurXgWeTPy_LpfNv-2c61vSuM" %>" />
+  <img src="<%= "https://maps.googleapis.com/maps/api/staticmap?center=#{location.coordinates_str}&size=509x254&zoom=15&markers=color:red%7C#{location.coordinates_str}&key=AIzaSyASzLV9HksurXgWeTPy_LpfNv-2c61vSuM" %>" />
   <div class="card-section">
     <%= link_to 'Edit', edit_location_path(location) %>
     <% if show_remove %>

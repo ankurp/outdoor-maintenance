@@ -12,7 +12,7 @@ class JobRequest < ApplicationRecord
   end
 
   def link_to_recommend
-    "<a rel='nofollow' class='send-recommendation-link' data-method='post' href='/recommendations?recommendation[user_id]=#{self.user_id}'>#{self.user.name} 👍</a> ?"
+    "<a rel='nofollow' class='send-recommendation-link' data-method='post' href='/recommendations?recommendation[user_id]=#{self.user_id}'>#{self.user.name} <i class='fa fa-thumbs-up'></i></a>?"
   end
 
   def notify_of_job_request

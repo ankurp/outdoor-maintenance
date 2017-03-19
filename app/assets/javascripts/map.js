@@ -32,7 +32,7 @@ function initMap() {
           animation: google.maps.Animation.DROP,
           map: map,
           icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=|4ECDC4',
-          title: "<div class='job-posting-description'>" + markers[i].description + "</div>" + (configuration.showRequestButton ? markers[i].request_job_link : '')
+          title: "<div class='job-posting-description'>" + markers[i].description + "<img style='width:100%' src='" + markers[i].photo_url + "'/></div>" + (configuration.showRequestButton ? markers[i].request_job_link : '')
       });
       
       // Allow each marker to have an info window    

@@ -294,7 +294,6 @@ a {
     background: white;
     height: 58px;
     padding: 10px 21px;
-    font: 500 17px/34px "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
     -moz-transition: color 0.1s linear, background-color 0.1s linear, border-color 0.1s linear;
     -ms-transition: color 0.1s linear, background-color 0.1s linear, border-color 0.1s linear;
     -o-transition: color 0.1s linear, background-color 0.1s linear, border-color 0.1s linear;
@@ -319,6 +318,7 @@ a {
 
 header .buttons-wrapper {
   margin-bottom: 20px;
+  color: black;
 }
 
 .is_homeowner_radio:checked + label.radio-button {
@@ -326,95 +326,12 @@ header .buttons-wrapper {
 }
 
 .radio-button {
-    margin-top: 20px;
-    background-color: rgba(0, 0, 0, 0.2);
-    border-color: white;
-    color: white;
-    height: 58px;
-    font: 500 22px "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    padding: 0 21px;
-    -moz-transition: color 0.1s linear, background-color 0.1s linear, border-color 0.1s linear;
-    -ms-transition: color 0.1s linear, background-color 0.1s linear, border-color 0.1s linear;
-    -o-transition: color 0.1s linear, background-color 0.1s linear, border-color 0.1s linear;
-    -webkit-transition: color 0.1s linear, background-color 0.1s linear, border-color 0.1s linear;
-    transition: color 0.1s linear, background-color 0.1s linear, border-color 0.1s linear;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    line-height: 52px;
-}
-
-.button {
-    color: white;
-    background: $primary-color;
-    height: 58px;
-    border: 2px solid $primary-color;
-    font: 500 22px "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    padding: 0 21px;
-    -moz-transition: color 0.1s linear, background-color 0.1s linear, border-color 0.1s linear;
-    -ms-transition: color 0.1s linear, background-color 0.1s linear, border-color 0.1s linear;
-    -o-transition: color 0.1s linear, background-color 0.1s linear, border-color 0.1s linear;
-    -webkit-transition: color 0.1s linear, background-color 0.1s linear, border-color 0.1s linear;
-    transition: color 0.1s linear, background-color 0.1s linear, border-color 0.1s linear;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    line-height: 52px;
-}
-
-.button:active {
-    background: #0b97c3;
-    border-color: #0b97c3;
-}
-
-a.button {
-    text-decoration: none;
-    display: inline-block;
-    line-height: 54px;
-    color: white;
-}
-
-a.button.button-stripe {
-    background-color: rgba(0, 0, 0, 0.2);
-    border-color: white;
-}
-
-a.button.button-stripe:hover {
-    color: #222222;
-    background-color: white;
-    border-color: white;
-}
-
-a.button.button-stripe:active {
-    color: #222222;
-    background-color: #e5e5e5;
-    border-color: #e5e5e5;
-}
-
-::-webkit-input-placeholder {
-    color: #cccccc
-}
-
-:-moz-placeholder {
-    color: #cccccc
-}
-
-::-moz-placeholder {
-    color: #cccccc
-}
-
-:-ms-input-placeholder {
-    color: #cccccc
-}
-
-input:focus::-webkit-input-placeholder {
-    color: transparent
+  color: white;
+  margin: 1rem 0 1rem 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-color: white;
+  color: white;
+  padding: 0.85em 1em;
 }
 
 /* header --------------------------  */
@@ -422,7 +339,6 @@ input:focus::-webkit-input-placeholder {
 header {
     padding: 20px 0;
     background: image-url('header.jpg') no-repeat 50% 50%;
-    font: 24px/36px "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: white;
     -moz-background-size: cover;
     -webkit-background-size: cover;
@@ -431,10 +347,6 @@ header {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-}
-
-header p {
-  font: 24px/36px "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 header h1 {
@@ -522,7 +434,6 @@ footer {
 }
 
 .newsletter-title {
-    font: bold 48px/60px "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
     letter-spacing: 1px;
     text-transform: uppercase;
     margin-bottom: 38px;
@@ -573,7 +484,6 @@ footer {
 }
 
 .promo-column h5 {
-    font: bold 18px/24px "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     margin-bottom: 12px;
 }
@@ -589,7 +499,6 @@ footer {
 }
 
 .simple-content h3 {
-    font: 700 48px/48px "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     border-bottom: solid 6px #f4f4f4;
     padding-bottom: 43px;
@@ -645,7 +554,6 @@ footer {
 }
 
 .comments .box h4 {
-    font: 500 36px/46px "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin-bottom: 37px;
 }
 
@@ -727,7 +635,6 @@ footer {
 }
 
 .video-title {
-    font: bold 48px/48px "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-align: center;
     text-transform: uppercase;
     margin-bottom: 25px;

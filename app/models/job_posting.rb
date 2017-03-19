@@ -3,6 +3,8 @@ class JobPosting < ApplicationRecord
   belongs_to :job_type
   belongs_to :location
   has_many :job_requests, dependent: :destroy
+  has_attached_file :photo
+  validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
 
   def self.default_scope
     where(completed: false)
@@ -10,6 +12,19 @@ class JobPosting < ApplicationRecord
 
   def location_coordinates
     self.location.coordinates
+  end
+
+  def photo_url
+    self.photo.url
+  end
+
+  def self.map_data
+    includes(:location)
+      .to_json(methods: [
+        :photo_url,
+        :location_coordinates,
+        :request_job_link
+      ])
   end
 
   def request_job_link

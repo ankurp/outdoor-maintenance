@@ -1,42 +1,70 @@
-<div class="users medium-centered medium-6 large-4 large-centered columns">
-  <h4 class="text-center">
+<div class="users medium-centered large-6 large-centered columns">
+  <div class="text-center">
     <%= image_tag @user.avatar.url, :class => "avatar" %>
-    <div>
-      <%= @user.name %> is a <%= @user.is_homeowner ? 'has properties for maintainence' : 'Job Seeker' %>
-    </div>
-  </h4>
-
-  <% if @user.is_homeowner %>
-    <% if @user.job_postings.size > 0 %>
-      <h5>Below are Jobs Posted by <%= @user.name %></h5>
-      <% @user.job_postings.each do |j| %>
-        <%= render j %>
-      <% end %>
-    <% end %>
-  <% else %>
-    <h5><%= @user.name %>'s Recommendations</h5>
-    <div class="card">
-      <div class="card-divider">
-        <% if @users_who_recommended.size > 0 %>
-          <ul>
-            <% @users_who_recommended.each do |u| %>
-              <li><%= link_to u.name, user_path(u) %></li>
-            <% end %>
-          </ul>
+    <h1 class="text-center"><%= @user.name %></h1>
+    <h4><%= @user.is_homeowner ? 'Home Owner' : 'Job Seeker' %>
+      <% if current_user.present? && current_user.id != @user.id %>
+        <% if current_user.recommended.where(user: @user).exists? %>
+          <i class='recommended fa fa-thumbs-up'></i>
         <% else %>
-          No one has recommended <%= @user.name %> yet.
+          <a rel='nofollow' class='recommendation-link' data-method='post' href='/recommendations?recommendation[user_id]=<%= @user.id %>'>
+            <i class='fa fa-thumbs-up'></i>
+          </a>
+        <% end %>
+      <% end %>
+    </h4>
+  </div>
+  <ul class="tabs text-center" data-tabs id="tabs">
+    <li class="tabs-title is-active">
+      <a href="#panel1" aria-selected="true">
+        <%= @user.is_homeowner? ? 'Job Posting' : 'Jobs Completed' %>
+      </a>
+    </li>
+    <li class="tabs-title">
+      <a href="#panel2">
+        Recommendations
+      </a>
+    </li>
+  </ul>
+
+  <div class="tabs-content" data-tabs-content="tabs">
+    <% if @user.is_homeowner %>
+      <div class="tabs-panel is-active" id="panel1">
+        <h5>Below are Jobs Posted by <%= @user.name %></h5>
+        <% if @user.job_postings.size > 0 %>
+          <% @user.job_postings.each do |j| %>
+            <%= render j %>
+          <% end %>
+        <% else %>
+          No jobs posted yet 🙁
         <% end %>
       </div>
-    </div>
-
-    <h5>Jobs completed by <%= @user.name %></h5>
-    <% if @job_postings.size > 0 %>
-      <% @job_postings.each do |j| %>
-        <%= render j %>
-      <% end %>
     <% else %>
-      No jobs completed yet.
+      <div class="tabs-panel is-active" id="panel1">
+        <h5>Jobs completed by <%= @user.name %></h5>
+        <% if @job_postings.size > 0 %>
+          <% @job_postings.each do |j| %>
+            <%= render j %>
+          <% end %>
+        <% else %>
+          No jobs completed yet 🙁
+        <% end %>
+      </div>
     <% end %>
-  <% end %>
+    <div class="tabs-panel" id="panel2">
+      <h5><%= @user.name %> is recommended by</h5>
+      <% if @users_who_recommended.size > 0 %>
+        <div class="card">
+          <% @users_who_recommended.each do |u| %>
+            <div class="card-divider">
+              <%= link_to "#{image_tag(u.avatar, :class => 'avatar small')} #{u.name}".html_safe, user_path(u) %>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        No one yet 🙁
+      <% end %>
+    </div>
+  </div>
 
 </div>

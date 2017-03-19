@@ -1,4 +1,4 @@
-<div class="medium-6 medium-centered large-4 large-centered columns">
+<div class="medium-centered large-6 large-centered columns">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
     <%= devise_error_messages! %>
     <div class="row column log-in-form">
@@ -14,8 +14,8 @@
       </label>
 
       <p class="panel clearfix">
-        <%= image_tag @user.avatar.url, :class => "avatar float-right" %>
-        Profile Photo
+        <div>Profile Photo</div>
+        <%= image_tag resource.avatar.url, :class => "avatar" %>
         <%= f.file_field :avatar %>
       </p>
 
@@ -23,7 +23,7 @@
         <%= link_to 'Edit Home Address(es)', locations_path %>
       </p>
 
-      <p>Are you a Homeowner or Entitled to make outdoor maintenance decisions for this property?</p>
+      <p>Are you a Homeowner or Entitled to make outdoor maintenance decisions for properties you add to your account?</p>
       <label class="label-switch">
         <%= f.check_box :is_homeowner, :class => 'is_homeowner_radio', id: 'is_homeowner', checked: resource.is_homeowner %>
         <div class="checkbox"></div>
