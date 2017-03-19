@@ -15,7 +15,7 @@ class JobPosting < ApplicationRecord
   end
 
   def photo_url
-    self.photo.url
+    self.photo.url if self.photo.present?
   end
 
   def self.map_data
