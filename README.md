@@ -1,5 +1,6 @@
-# outdoor-maintenance
-Rails site for connecting people to do outdoor maintenance jobs in a sustainable way.
+![Splash](https://raw.githubusercontent.com/ankurp/outdoor-maintenance/master/public/screenshot.png)
+
+Rails web site code for connecting people to do outdoor maintenance jobs in a sustainable way.
 
 ## Getting Started
 
